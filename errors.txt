@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 66: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation.
+    "You've created a new Ren'Py game."
+    ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Wed Jun 29 21:21:44 2022
