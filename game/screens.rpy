@@ -81,7 +81,10 @@ style frame:
 ## In-game screens
 ################################################################################
 
-
+## Gallery screen ##################################################################
+##
+screen gallery():
+    add "black"
 ## Say screen ##################################################################
 ##
 ## The say screen is used to display dialogue to the player. It takes two
@@ -354,26 +357,123 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    #background image
+    add "gui/gui/mm_bg.jpg"
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    #frame buat nunjukin imagebutton menu start dkk
+    add "gui/gui/mm_frame.png":
+        xalign 0.169
+        yalign 0.33
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
+    #logo sakura spirit
+    add "gui/gui/mm_logo.png":
+        xpos -58
+        ypos 450
 
-    if gui.show_name:
+    #UWOOOOHH girls di kanan
+    add "gui/gui/mm_girls.png" at mm(1.0,0.0,1.0) :
+        xalign 1.0
+        yalign 1.0
 
-        vbox:
-            style "main_menu_vbox"
+    #button menu
+    vbox:
+        spacing 18
+        xpos 190
+        ypos 80
 
-            text "[config.name!t]":
-                style "main_menu_title"
+        textbutton "Start Game" at hoverr(0,0,0) :
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action Start()
 
-            text "[config.version]":
-                style "main_menu_version"
+        textbutton "Load Game" at hoverr(0.1,0,0):
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action ShowMenu("load")
+
+        textbutton "Preferences" at hoverr(0.2,0,0):
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action ShowMenu("preferences")
+
+        textbutton "Gallery" at hoverr(0.3,0,0):
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action ShowMenu("gallery")
+
+        textbutton "Help" at hoverr(0.4,0,0):
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action ShowMenu("help")
+
+        textbutton "Quit" at hoverr(0.5,0,0):
+            text_size 22.5
+            text_xalign 0.5
+            text_yalign 0.3
+            ysize 52
+            xsize 260
+            text_justify True
+            text_font "gui/gui/font/KaushanScript-Regular.otf"
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            idle_background "gui/gui/mm_idle.png"
+            hover_background "gui/gui/mm_hover.png"
+            action Quit(confirm=not main_menu)
+    #logo sakura spirit
+    add "gui/gui/mm_logo.png":
+        xpos -58
+        ypos 450
 
 
 style main_menu_frame is empty
