@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 86: screen expects a non-empty block.
-    screen gallery():
-                     ^
+File "game/transform atl.rpy", line 27: expected 'name' not found.
+    transform
+             ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jun 29 23:42:20 2022
+Fri Jul  1 00:11:50 2022

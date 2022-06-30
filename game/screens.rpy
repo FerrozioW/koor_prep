@@ -381,7 +381,7 @@ screen main_menu():
         xpos 190
         ypos 80
 
-        textbutton "Start Game" at hoverr(0,0,0) :
+        textbutton "Start Game" at hovery(0,0,0) :
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -391,12 +391,12 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action Start()
+            action [Start(), Play("sound", "gui/sfx/button1.ogg")]
 
-        textbutton "Load Game" at hoverr(0.1,0,0):
+        textbutton "Load Game" at hovery(0.1,0,0):
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -406,12 +406,12 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action ShowMenu("load")
+            action [ShowMenu("load"), Play("sound", "gui/sfx/button1.ogg")]
 
-        textbutton "Preferences" at hoverr(0.2,0,0):
+        textbutton "Preferences" at hovery(0.2,0,0):
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -421,12 +421,12 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action ShowMenu("preferences")
+            action [ShowMenu("preferences"), Play("sound", "gui/sfx/button1.ogg")]
 
-        textbutton "Gallery" at hoverr(0.3,0,0):
+        textbutton "Gallery" at hovery(0.3,0,0):
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -436,12 +436,12 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action ShowMenu("gallery")
+            action [ShowMenu("gallery"), Play("sound", "gui/sfx/button1.ogg")]
 
-        textbutton "Help" at hoverr(0.4,0,0):
+        textbutton "Help" at hovery(0.4,0,0):
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -451,12 +451,12 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action ShowMenu("help")
+            action [ShowMenu("help"), Play("sound", "gui/sfx/button1.ogg")]
 
-        textbutton "Quit" at hoverr(0.5,0,0):
+        textbutton "Quit" at hovery(0.5,0,0):
             text_size 22.5
             text_xalign 0.5
             text_yalign 0.3
@@ -466,10 +466,10 @@ screen main_menu():
             text_font "gui/gui/font/KaushanScript-Regular.otf"
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(absolute(1),"#674688",absolute(1),absolute(1))]
+            text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action Quit(confirm=not main_menu)
+            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
     #logo sakura spirit
     add "gui/gui/mm_logo.png":
         xpos -58
@@ -1070,134 +1070,144 @@ screen help():
 
     tag menu
 
-    default device = "keyboard"
+    add "gui/gui/prefs_bg.jpg"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    add "gui/gui/pref_frame.png" at slidex(0,48,60):
+        xalign 0.085
+        yalign 0.52
 
-        style_prefix "help"
+    text "Help" at slidex(0,-8,60):
+        xalign 0.04
+        yalign 0.015
+        size 48
+        font"gui/gui/font/KaushanScript-Regular.otf"
+        color "#FFFFFF"
+        outlines [(2, "#936FA6", 1,1)]
 
-        vbox:
-            spacing 15
+    add "gui/gui/nav_frame.png" at slidex(0,1320,-60):
+        xalign 0.9855
+        yalign 0.52
 
-            hbox:
+    vbox:
+        xpos 980
+        ypos 116
+        spacing 10
+        textbutton "Return" at hoverx (0.3,0,0) :
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [Return()  , Play("sound", "gui/sfx/button1.ogg")]
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+        textbutton "Preferences"  at hoverx (0.3,0,0) :
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [ShowMenu("preferences"), Play("sound", "gui/sfx/button1.ogg")]
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+        textbutton "Save Game"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            insensitive_background "gui/gui/nav_insensitive.png"
+            action [ShowMenu("save"), Play("sound", "gui/sfx/button1.ogg")]
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+        textbutton "Load Game"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [ShowMenu("load"), Play("sound", "gui/sfx/button1.ogg")]
 
+        textbutton "Main Menu"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            insensitive_background "gui/gui/nav_insensitive.png"
+            action [MainMenu(), Play("sound", "gui/sfx/button1.ogg")]
 
-screen keyboard_help():
+        textbutton "Help"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [ShowMenu("help"), Play("sound", "gui/sfx/button1.ogg")]
 
-    hbox:
-        label _("Enter")
-        text _("Advances dialogue and activates the interface.")
+        textbutton "Quit"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
 
-    hbox:
-        label _("Space")
-        text _("Advances dialogue without selecting choices.")
-
-    hbox:
-        label _("Arrow Keys")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Escape")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Ctrl")
-        text _("Skips dialogue while held down.")
-
-    hbox:
-        label _("Tab")
-        text _("Toggles dialogue skipping.")
-
-    hbox:
-        label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Page Down")
-        text _("Rolls forward to later dialogue.")
-
-    hbox:
-        label "H"
-        text _("Hides the user interface.")
-
-    hbox:
-        label "S"
-        text _("Takes a screenshot.")
-
-    hbox:
-        label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
-
-    hbox:
-        label "Shift+A"
-        text _("Opens the accessibility menu.")
-
-
-screen mouse_help():
-
-    hbox:
-        label _("Left Click")
-        text _("Advances dialogue and activates the interface.")
-
-    hbox:
-        label _("Middle Click")
-        text _("Hides the user interface.")
-
-    hbox:
-        label _("Right Click")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Mouse Wheel Up\nClick Rollback Side")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
-
-
-screen gamepad_help():
-
-    hbox:
-        label _("Right Trigger\nA/Bottom Button")
-        text _("Advances dialogue and activates the interface.")
-
-    hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
-
-
-    hbox:
-        label _("D-Pad, Sticks")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Start, Guide")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
-
-    textbutton _("Calibrate") action GamepadCalibrate()
-
+    add "gui/gui/help_bg.png"at slidey(0.4,25,60):
+        xpos 40
+        ypos 85
 
 style help_button is gui_button
 style help_button_text is gui_button_text
