@@ -3,7 +3,15 @@ transform mm(zum,alpha0,alpha1):
     zoom zum alpha alpha0
     ease 1.0 alpha alpha1
 
-
+transform hovery_kanan(pausee,x_start,y_start):
+    subpixel True
+    xpos (x_start-60) alpha 0
+    pause pausee
+    ease_cubic 0.7 xpos x_start alpha 1.0
+    on idle:
+        ease 0.15 ypos (y_start)
+    on hover:
+        ease 0.15 ypos (y_start-3)
 transform hovery(pausee,x_start,y_start):
     subpixel True
     xpos (x_start+60) alpha 0
@@ -35,3 +43,13 @@ transform slidey(pausee,y_start,delta_y):
     ypos (y_start ) alpha 0
     pause pausee
     ease 0.7 ypos (y_start + delta_y) alpha 1
+
+transform slidey_y(pausee,y_start,delta_y):
+    subpixel True
+    ypos (y_start ) alpha 0
+    pause pausee
+    ease 0.7 ypos (y_start + delta_y) alpha 1
+    on idle:
+        ease 0.15 ypos (y_start+ delta_y)
+    on hover:
+        ease 0.15 ypos (y_start+ delta_y-3)

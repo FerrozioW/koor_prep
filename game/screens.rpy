@@ -3,8 +3,7 @@
 ################################################################################
 
 init offset = -1
-
-
+default meenu = "save"
 ################################################################################
 ## Styles
 ################################################################################
@@ -75,8 +74,6 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
-
-
 ################################################################################
 ## In-game screens
 ################################################################################
@@ -84,7 +81,11 @@ style frame:
 ## Gallery screen ##################################################################
 ##
 screen gallery():
-    add "black"
+    tag menu
+    text "Gallery"
+
+
+
 ## Say screen ##################################################################
 ##
 ## The say screen is used to display dialogue to the player. It takes two
@@ -409,7 +410,7 @@ screen main_menu():
             text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action [ShowMenu("load"), Play("sound", "gui/sfx/button1.ogg")]
+            action [ShowMenu("templatee","load"),Play("sound", "gui/sfx/button1.ogg")]
 
         textbutton "Preferences" at hovery(0.2,0,0):
             text_size 22.5
@@ -424,7 +425,8 @@ screen main_menu():
             text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action [ShowMenu("preferences"), Play("sound", "gui/sfx/button1.ogg")]
+            action [ShowMenu("templatee","preferences"),Play("sound", "gui/sfx/button1.ogg")]
+
 
         textbutton "Gallery" at hovery(0.3,0,0):
             text_size 22.5
@@ -439,7 +441,8 @@ screen main_menu():
             text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action [ShowMenu("gallery"), Play("sound", "gui/sfx/button1.ogg")]
+            action [ShowMenu("templatee","gallery"),Play("sound", "gui/sfx/button1.ogg")]
+
 
         textbutton "Help" at hovery(0.4,0,0):
             text_size 22.5
@@ -454,7 +457,7 @@ screen main_menu():
             text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action [ShowMenu("help"), Play("sound", "gui/sfx/button1.ogg")]
+            action [ShowMenu("templatee","help"),Play("sound", "gui/sfx/button1.ogg")]
 
         textbutton "Quit" at hovery(0.5,0,0):
             text_size 22.5
@@ -503,6 +506,157 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+
+## template screen ##################################################################
+## Template buat game menu
+
+screen templatee(meenu= "save"):
+
+    tag menu
+    add "gui/gui/prefs_bg.jpg"
+
+    if meenu == "save":
+        use save
+
+    elif meenu == "load":
+        use load
+
+    elif meenu == "gallery":
+        use gallery
+
+    elif meenu == "preferences":
+        use preferences
+
+    elif meenu == "help":
+        use help
+
+    add "gui/gui/nav_frame.png" at slidex(0,1320,-60):
+        xalign 0.9855
+        yalign 0.52
+
+    vbox:
+        xpos 980
+        ypos 116
+        spacing 10
+
+        textbutton "Return" at hoverx (0.3,0,0) :
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [Return()  , Play("sound", "gui/sfx/button1.ogg")]
+
+        textbutton "Preferences"  at hoverx (0.3,0,0) :
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected meenu == "preferences"
+            selected_background "gui/gui/nav_active.png"
+            action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee", "preferences")]
+
+
+        textbutton "Save Game"  at hoverx (0.3,0,0):
+            sensitive main_menu == False
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected meenu == "save"
+            selected_background "gui/gui/nav_active.png"
+            insensitive_background "gui/gui/nav_insensitive.png"
+            action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee", "save")]
+
+        textbutton "Load Game"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected meenu == "load"
+            selected_background "gui/gui/nav_active.png"
+            action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee", "load")]
+
+        textbutton "Main Menu"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            insensitive_background "gui/gui/nav_insensitive.png"
+            action [MainMenu(), Play("sound", "gui/sfx/button1.ogg")]
+
+        textbutton "Help"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_selected_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected meenu == "help"
+            selected_background "gui/gui/nav_active.png"
+            action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee", "help")]
+
+        textbutton "Quit"  at hoverx (0.3,0,0):
+            text_size 14
+            text_xalign 0.5
+            text_yalign 0.5
+            ysize 50
+            xsize 260
+            text_justify True
+            text_color "#FFFFFF"
+            text_hover_color "#FFB940"
+            text_outlines [(2, "#936FA6", 1,1)]
+            idle_background "gui/gui/nav_idle.png"
+            hover_background "gui/gui/nav_hover.png"
+            selected_background "gui/gui/nav_active.png"
+            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
 
 
 ## Game Menu screen ############################################################
@@ -684,6 +838,8 @@ screen save():
 
     tag menu
 
+
+
     use file_slots(_("Save"))
 
 
@@ -695,80 +851,250 @@ screen load():
 
 
 screen file_slots(title):
-
     default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
 
-    use game_menu(title):
+    if title == "Save":
+        text "Load" at slidex(0,-8,60):
+            xalign 0.04
+            yalign 0.015
+            size 48
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#936FA6", 1,1)]
 
-        fixed:
+        add "gui/gui/pref_frame.png" at slidex(0,48,60):
+            xalign 0.085
+            yalign 0.52
 
-            ## This ensures the input will get the enter event before any of the
-            ## buttons do.
-            order_reverse True
+        grid 2 4:
+            area (60,162, 820,600)
+            xspacing -70
+            yspacing -200
 
-            ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
 
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
+            for i in range(4 * 2):
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+                $ slot = i + 1
 
-            ## The grid of file slots.
-            grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
+                button at slidey_y (0.5,-55,60):
+                    action FileSave(slot)
+                    background "gui/gui/sl_idle.png"
+                    hover_background "gui/gui/sl_hover.png"
+                    insensitive_background "gui/gui/sl_insensitive.png"
+                    has hbox
+                    if FileLoadable(slot):
+                        area (0,0,360,80)
+                        add FileScreenshot(slot):
+                            xpos 10
+                            ypos 5
+                            size (100,60)
 
-                xalign 0.5
-                yalign 0.5
+                        text FileTime(slot, format=_("{#file_time}%B,%H:%M"), empty=_("empty slot")):
+                            size 16
+                            justify True
+                            color "#FFFFFF"
+                            hover_color "#FFB940"
+                            outlines [(2, "#936FA6", 1,1)]
+                            xalign 0.1
+                            yalign 0.2
 
-                spacing gui.slot_spacing
 
-                for i in range(gui.file_slot_cols * gui.file_slot_rows):
+                        text FileSaveName(slot)
+                    else:
+                        area (0,0,360,80)
+                        text "Empty Slot.":
+                            size 16
+                            justify True
+                            color "#FFFFFF"
+                            hover_color "#FFB940"
+                            outlines [(2, "#936FA6", 1,1)]
+                            xsize 500
+                            xalign 1.0
+                            yalign 0.2
 
-                    $ slot = i + 1
+                    key "save_delete" action FileDelete(slot)
 
-                    button:
-                        action FileAction(slot)
+        ## Buttons to access other pages.
+        hbox:
 
-                        has vbox
 
-                        add FileScreenshot(slot) xalign 0.5
+            xpos 110
+            ypos 110
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            style "slot_time_text"
+            spacing 18
 
-                        text FileSaveName(slot):
-                            style "slot_name_text"
+            textbutton _("Previous") at hovery_kanan(0,0,0):
+                text_size 18
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_selected_color "#FFB940"
+                text_outlines [(2, "#936FA6", 1,1)]
+                action FilePagePrevious()
 
-                        key "save_delete" action FileDelete(slot)
 
-            ## Buttons to access other pages.
-            hbox:
-                style_prefix "page"
+            if config.has_autosave:
+                textbutton _("{#auto_page}Auto") at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage("auto")
 
-                xalign 0.5
-                yalign 1.0
+            if config.has_quicksave:
+                textbutton _("{#quick_page}Quick")at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage("quick")
 
-                spacing gui.page_spacing
+            ## range(1, 9) gives the numbers from 1 to 8.
 
-                textbutton _("<") action FilePagePrevious()
+            for page in range(1, 9):
+                textbutton "[page]"at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage(page)
 
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
+            textbutton _("Next")at hovery_kanan(0,0,0):
+                text_size 18
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_selected_color "#FFB940"
+                text_outlines [(2, "#936FA6", 1,1)]
+                action FilePageNext()
 
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                ## range(1, 10) gives the numbers from 1 to 9.
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
+    elif title == "Load":
+        text "Load" at slidex(0,-8,60):
+            xalign 0.04
+            yalign 0.015
+            size 48
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#936FA6", 1,1)]
 
-                textbutton _(">") action FilePageNext()
+        add "gui/gui/pref_frame.png" at slidex(0,48,60):
+            xalign 0.085
+            yalign 0.52
 
+        grid 2 4:
+            area (60,162, 820,600)
+            xspacing -70
+            yspacing -200
+
+
+            for i in range(4 * 2):
+
+                $ slot = i + 1
+
+                button at slidey_y (0.5,-55,60):
+                    action FileLoad(slot)
+                    background "gui/gui/sl_idle.png"
+                    hover_background "gui/gui/sl_hover.png"
+                    insensitive_background "gui/gui/sl_insensitive.png"
+                    has hbox
+                    if FileLoadable(slot):
+                        area (0,0,360,80)
+                        add FileScreenshot(slot):
+                            xpos 10
+                            ypos 5
+                            size (100,60)
+
+                        text FileTime(slot, format=_("{#file_time}%B,%H:%M"), empty=_("empty slot")):
+                            size 16
+                            justify True
+                            color "#FFFFFF"
+                            hover_color "#FFB940"
+                            outlines [(2, "#936FA6", 1,1)]
+                            xalign 0.1
+                            yalign 0.2
+
+
+                        text FileSaveName(slot)
+                    else:
+                        area (0,0,360,80)
+                        text "Empty Slot.":
+                            size 16
+                            justify True
+                            color "#FFFFFF"
+                            hover_color "#FFB940"
+                            outlines [(2, "#936FA6", 1,1)]
+                            xsize 500
+                            xalign 1.0
+                            yalign 0.2
+
+                    key "save_delete" action FileDelete(slot)
+
+        ## Buttons to access other pages.
+        hbox:
+
+
+            xpos 110
+            ypos 110
+
+            spacing 18
+
+            textbutton _("Previous") at hovery_kanan(0,0,0):
+                text_size 18
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_selected_color "#FFB940"
+                text_outlines [(2, "#936FA6", 1,1)]
+                action FilePagePrevious()
+
+
+            if config.has_autosave:
+                textbutton _("{#auto_page}Auto") at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage("auto")
+
+            if config.has_quicksave:
+                textbutton _("{#quick_page}Quick")at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage("quick")
+
+            ## range(1, 9) gives the numbers from 1 to 8.
+
+            for page in range(1, 9):
+                textbutton "[page]"at hovery_kanan(0,0,0):
+                    text_size 18
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_selected_color "#FFB940"
+                    text_outlines [(2, "#936FA6", 1,1)]
+                    action FilePage(page)
+
+            textbutton _("Next")at hovery_kanan(0,0,0):
+                text_size 18
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_selected_color "#FFB940"
+                text_outlines [(2, "#936FA6", 1,1)]
+                action FilePageNext()
 
 style page_label is gui_label
 style page_label_text is gui_label_text
@@ -808,8 +1134,12 @@ style slot_button_text:
 ## themselves.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
-
 screen preferences():
+    tag menu
+    text "Preferences":
+        size 60
+
+screen preferences1():
 
     tag menu
 
@@ -1070,8 +1400,6 @@ screen help():
 
     tag menu
 
-    add "gui/gui/prefs_bg.jpg"
-
     add "gui/gui/pref_frame.png" at slidex(0,48,60):
         xalign 0.085
         yalign 0.52
@@ -1084,126 +1412,6 @@ screen help():
         color "#FFFFFF"
         outlines [(2, "#936FA6", 1,1)]
 
-    add "gui/gui/nav_frame.png" at slidex(0,1320,-60):
-        xalign 0.9855
-        yalign 0.52
-
-    vbox:
-        xpos 980
-        ypos 116
-        spacing 10
-        textbutton "Return" at hoverx (0.3,0,0) :
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            action [Return()  , Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Preferences"  at hoverx (0.3,0,0) :
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            action [ShowMenu("preferences"), Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Save Game"  at hoverx (0.3,0,0):
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            insensitive_background "gui/gui/nav_insensitive.png"
-            action [ShowMenu("save"), Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Load Game"  at hoverx (0.3,0,0):
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            action [ShowMenu("load"), Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Main Menu"  at hoverx (0.3,0,0):
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            insensitive_background "gui/gui/nav_insensitive.png"
-            action [MainMenu(), Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Help"  at hoverx (0.3,0,0):
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            action [ShowMenu("help"), Play("sound", "gui/sfx/button1.ogg")]
-
-        textbutton "Quit"  at hoverx (0.3,0,0):
-            text_size 14
-            text_xalign 0.5
-            text_yalign 0.5
-            ysize 50
-            xsize 260
-            text_justify True
-            text_color "#FFFFFF"
-            text_hover_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
-            idle_background "gui/gui/nav_idle.png"
-            hover_background "gui/gui/nav_hover.png"
-            selected_background "gui/gui/nav_active.png"
-            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
 
     add "gui/gui/help_bg.png"at slidey(0.4,25,60):
         xpos 40

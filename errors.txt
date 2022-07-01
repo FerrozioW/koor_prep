@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/transform atl.rpy", line 27: expected 'name' not found.
-    transform
-             ^
+File "game/screens.rpy", line 957: u'text_justify' is not a keyword argument or valid child for the text statement.
+    text_justify True
+                ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Fri Jul  1 00:11:50 2022
+Sat Jul  2 00:42:05 2022
