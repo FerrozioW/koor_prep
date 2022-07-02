@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 957: u'text_justify' is not a keyword argument or valid child for the text statement.
-    text_justify True
-                ^
+File "game/screens.rpy", line 1207: hbox expects a non-empty block.
+    hbox:
+         ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Jul  2 00:42:05 2022
+Sat Jul  2 23:28:53 2022

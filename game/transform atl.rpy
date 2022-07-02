@@ -7,11 +7,22 @@ transform hovery_kanan(pausee,x_start,y_start):
     subpixel True
     xpos (x_start-60) alpha 0
     pause pausee
-    ease_cubic 0.7 xpos x_start alpha 1.0
+    ease 0.7 xpos x_start alpha 1.0
     on idle:
         ease 0.15 ypos (y_start)
     on hover:
         ease 0.15 ypos (y_start-3)
+
+transform hovery_bawah(pausee,x_start,y_start):
+    subpixel True
+    ypos (y_start-30) alpha 0
+    pause pausee
+    ease 0.7 ypos y_start alpha 1.0
+    on idle:
+        ease 0.15 ypos (y_start)
+    on hover:
+        ease 0.15 ypos (y_start-3)
+
 transform hovery(pausee,x_start,y_start):
     subpixel True
     xpos (x_start+60) alpha 0

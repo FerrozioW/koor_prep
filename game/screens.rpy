@@ -549,7 +549,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected_background "gui/gui/nav_active.png"
@@ -565,7 +565,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected meenu == "preferences"
@@ -584,7 +584,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected meenu == "save"
@@ -602,7 +602,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected meenu == "load"
@@ -619,7 +619,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected_background "gui/gui/nav_active.png"
@@ -636,7 +636,7 @@ screen templatee(meenu= "save"):
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
             text_selected_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected meenu == "help"
@@ -652,7 +652,7 @@ screen templatee(meenu= "save"):
             text_justify True
             text_color "#FFFFFF"
             text_hover_color "#FFB940"
-            text_outlines [(2, "#936FA6", 1,1)]
+            text_outlines [(2, "#6D5190", 1,1)]
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected_background "gui/gui/nav_active.png"
@@ -860,7 +860,7 @@ screen file_slots(title):
             size 48
             font"gui/gui/font/KaushanScript-Regular.otf"
             color "#FFFFFF"
-            outlines [(2, "#936FA6", 1,1)]
+            outlines [(2, "#6D5190", 1,1)]
 
         add "gui/gui/pref_frame.png" at slidex(0,48,60):
             xalign 0.085
@@ -894,7 +894,7 @@ screen file_slots(title):
                             justify True
                             color "#FFFFFF"
                             hover_color "#FFB940"
-                            outlines [(2, "#936FA6", 1,1)]
+                            outlines [(2, "#6D5190", 1,1)]
                             xalign 0.1
                             yalign 0.2
 
@@ -907,7 +907,7 @@ screen file_slots(title):
                             justify True
                             color "#FFFFFF"
                             hover_color "#FFB940"
-                            outlines [(2, "#936FA6", 1,1)]
+                            outlines [(2, "#6D5190", 1,1)]
                             xsize 500
                             xalign 1.0
                             yalign 0.2
@@ -929,7 +929,7 @@ screen file_slots(title):
                 text_color "#FFFFFF"
                 text_hover_color "#FFB940"
                 text_selected_color "#FFB940"
-                text_outlines [(2, "#936FA6", 1,1)]
+                text_outlines [(2, "#6D5190", 1,1)]
                 action FilePagePrevious()
 
 
@@ -940,7 +940,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage("auto")
 
             if config.has_quicksave:
@@ -950,7 +950,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage("quick")
 
             ## range(1, 9) gives the numbers from 1 to 8.
@@ -962,7 +962,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage(page)
 
             textbutton _("Next")at hovery_kanan(0,0,0):
@@ -971,7 +971,7 @@ screen file_slots(title):
                 text_color "#FFFFFF"
                 text_hover_color "#FFB940"
                 text_selected_color "#FFB940"
-                text_outlines [(2, "#936FA6", 1,1)]
+                text_outlines [(2, "#6D5190", 1,1)]
                 action FilePageNext()
 
 
@@ -982,7 +982,7 @@ screen file_slots(title):
             size 48
             font"gui/gui/font/KaushanScript-Regular.otf"
             color "#FFFFFF"
-            outlines [(2, "#936FA6", 1,1)]
+            outlines [(2, "#6D5190", 1,1)]
 
         add "gui/gui/pref_frame.png" at slidex(0,48,60):
             xalign 0.085
@@ -1016,7 +1016,7 @@ screen file_slots(title):
                             justify True
                             color "#FFFFFF"
                             hover_color "#FFB940"
-                            outlines [(2, "#936FA6", 1,1)]
+                            outlines [(2, "#6D5190", 1,1)]
                             xalign 0.1
                             yalign 0.2
 
@@ -1029,7 +1029,7 @@ screen file_slots(title):
                             justify True
                             color "#FFFFFF"
                             hover_color "#FFB940"
-                            outlines [(2, "#936FA6", 1,1)]
+                            outlines [(2, "#6D5190", 1,1)]
                             xsize 500
                             xalign 1.0
                             yalign 0.2
@@ -1051,7 +1051,7 @@ screen file_slots(title):
                 text_color "#FFFFFF"
                 text_hover_color "#FFB940"
                 text_selected_color "#FFB940"
-                text_outlines [(2, "#936FA6", 1,1)]
+                text_outlines [(2, "#6D5190", 1,1)]
                 action FilePagePrevious()
 
 
@@ -1062,7 +1062,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage("auto")
 
             if config.has_quicksave:
@@ -1072,7 +1072,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage("quick")
 
             ## range(1, 9) gives the numbers from 1 to 8.
@@ -1084,7 +1084,7 @@ screen file_slots(title):
                     text_color "#FFFFFF"
                     text_hover_color "#FFB940"
                     text_selected_color "#FFB940"
-                    text_outlines [(2, "#936FA6", 1,1)]
+                    text_outlines [(2, "#6D5190", 1,1)]
                     action FilePage(page)
 
             textbutton _("Next")at hovery_kanan(0,0,0):
@@ -1093,7 +1093,7 @@ screen file_slots(title):
                 text_color "#FFFFFF"
                 text_hover_color "#FFB940"
                 text_selected_color "#FFB940"
-                text_outlines [(2, "#936FA6", 1,1)]
+                text_outlines [(2, "#6D5190", 1,1)]
                 action FilePageNext()
 
 style page_label is gui_label
@@ -1136,8 +1136,330 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 screen preferences():
     tag menu
-    text "Preferences":
-        size 60
+
+    text "Preferences" at slidex(0,-8,60):
+        xalign 0.04
+        yalign 0.015
+        size 48
+        font"gui/gui/font/KaushanScript-Regular.otf"
+        color "#FFFFFF"
+        outlines [(2, "#6D5190", 1,1)]
+
+    add "gui/gui/pref_frame.png" at slidex(0,48,60):
+        xalign 0.085
+        yalign 0.52
+
+    vbox:
+        xalign 0.06
+        yalign 0.4
+        spacing 6
+        text "Display" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        null height 2
+        #ini buat menu dibawah display
+        hbox:
+            xpos 53
+            spacing 15
+            textbutton "Fullscreen" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("display", "fullscreen")
+
+            textbutton "Window" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("display", "window")
+
+        text "Transition" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        #hbox ini buat menu transition (dikiri kanan)
+        hbox:
+            xpos 53
+            spacing 15
+
+            textbutton "All" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("transitions", "all")
+
+            textbutton "None" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("transitions", "none")
+
+        text "After Choices" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+        #menu dari After Choices
+        hbox:
+            xpos 53
+            spacing 15
+
+            textbutton "Stop Skipping" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("after choices", "stop")
+
+            textbutton "Keep Skipping" at hovery_bawah(0.3,0,0):
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Preference("after choices", "skip")
+
+        text "Skip" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        #menu dari skip karna ada 2 baris jadi hbox kiri kanan baris pertama dan yg begin skipping baris dua
+        vbox:
+            spacing 10
+            hbox:
+                xpos 53
+                spacing 15
+
+                textbutton "Seen Massages" at hovery_bawah(0.3,0,0):
+                    text_size 14
+                    text_xalign 0.5
+                    text_yalign 0.3
+                    ysize 32
+                    xsize 142
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_outlines [(1, "#674688", 1, 1)]
+                    idle_background "gui/gui/pref_idle.png"
+                    hover_background "gui/gui/pref_hover.png"
+                    selected_background "gui/gui/pref_active.png"
+                    insensitive_background "gui/gui/pref_insensitive.png"
+                    action Preference("skip", "seen")
+
+                textbutton "All Messages" at hovery_bawah(0.3,0,0):
+                    text_size 14
+                    text_xalign 0.5
+                    text_yalign 0.3
+                    ysize 32
+                    xsize 142
+                    text_justify True
+                    text_color "#FFFFFF"
+                    text_hover_color "#FFB940"
+                    text_outlines [(1, "#674688", 1, 1)]
+                    idle_background "gui/gui/pref_idle.png"
+                    hover_background "gui/gui/pref_hover.png"
+                    selected_background "gui/gui/pref_active.png"
+                    insensitive_background "gui/gui/pref_insensitive.png"
+                    action Preference("skip", "all")
+
+            textbutton "Begin Skipping" at hovery_bawah(0.3,0,0):
+                sensitive main_menu == False
+                text_size 14
+                xpos 53
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                selected_background "gui/gui/pref_active.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action Skip() alternate Skip(fast=True, confirm=True)
+    vbox:
+        xalign 0.46
+        yalign 0.35
+        spacing 6
+
+        text "Music Volume" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        bar at slidex(0,-8,60) value Preference("music volume"):
+            #batas x dan y
+            xsize 222
+            ysize 32
+            xpos 53
+            #sisi kiri"
+            left_bar "gui/gui/bar_full.png"
+            #sisi kanan
+            right_bar "gui/gui/bar_empty.png"
+
+            #gambar tengah bar
+            thumb "gui/gui/bar_thumb.png"
+
+            #hilangin kotak putih
+            thumb_offset 10
+
+            #pixel batas pojok thumb
+            left_gutter 8
+            right_gutter 8
+
+        text "Sound Volume" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        bar at slidex(0,-8,60) value Preference("sound volume"):
+            #batas x dan y
+            xsize 222
+            ysize 32
+            xpos 53
+            #sisi kiri"
+            left_bar "gui/gui/bar_full.png"
+            #sisi kanan
+            right_bar "gui/gui/bar_empty.png"
+
+            #gambar tengah bar
+            thumb "gui/gui/bar_thumb.png"
+
+            #hilangin kotak putih
+            thumb_offset 10
+
+            #pixel batas pojok thumb
+            left_gutter 8
+            right_gutter 8
+
+        text "Text Speed" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        bar at slidex(0,-8,60) value Preference("text speed"):
+            #batas x dan y
+            xsize 222
+            ysize 32
+            xpos 53
+            #sisi kiri"
+            left_bar "gui/gui/bar_full.png"
+            #sisi kanan
+            right_bar "gui/gui/bar_empty.png"
+
+            #gambar tengah bar
+            thumb "gui/gui/bar_thumb.png"
+
+            #hilangin kotak putih
+            thumb_offset 10
+
+            #pixel batas pojok thumb
+            left_gutter 8
+            right_gutter 8
+
+        text "Auto-Forward Time" at slidex(0,-8,60):
+            kerning -0.5
+            size 23
+            font"gui/gui/font/KaushanScript-Regular.otf"
+            color "#FFFFFF"
+            outlines [(2, "#6D5190", 1,1)]
+
+        bar at slidex(0,-8,60) value Preference("auto-forward time"):
+            #batas x dan y
+            xsize 222
+            ysize 32
+            xpos 53
+            #sisi kiri"
+            left_bar "gui/gui/bar_full.png"
+            #sisi kanan
+            right_bar "gui/gui/bar_empty.png"
+
+            #gambar tengah bar
+            thumb "gui/gui/bar_thumb.png"
+
+            #hilangin kotak putih
+            thumb_offset 10
+
+            #pixel batas pojok thumb
+            left_gutter 8
+            right_gutter 8
+
 
 screen preferences1():
 
@@ -1410,7 +1732,7 @@ screen help():
         size 48
         font"gui/gui/font/KaushanScript-Regular.otf"
         color "#FFFFFF"
-        outlines [(2, "#936FA6", 1,1)]
+        outlines [(2, "#6D5190", 1,1)]
 
 
     add "gui/gui/help_bg.png"at slidey(0.4,25,60):
