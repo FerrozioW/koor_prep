@@ -80,9 +80,29 @@ style frame:
 
 ## Gallery screen ##################################################################
 ##
-screen gallery():
+screen gallery(halaman=1):
     tag menu
-    text "Gallery"
+    add "gui/gui/pref_frame.png" at slidex(0,48,60):
+        xalign 0.085
+        yalign 0.52
+
+    text "Gallery" at slidex(0,-8,60):
+        xalign 0.04
+        yalign 0.015
+        size 48
+        font"gui/gui/font/KaushanScript-Regular.otf"
+        color "#FFFFFF"
+        outlines [(2, "#6D5190", 1,1)]
+
+## tunjuk ##################################################################
+#buat nunjukin gambar dari galery
+screen tunjuk (angkaa=1):
+
+    imagebutton:
+        idle "gui/cg/cg"+str(angkaa)+".png"
+        action Hide("tunjuk")
+
+
 
 
 
@@ -510,7 +530,7 @@ style main_menu_version:
 ## template screen ##################################################################
 ## Template buat game menu
 
-screen templatee(meenu= "save"):
+screen templatee(meenu= "save", halaman =1):
 
     tag menu
     add "gui/gui/prefs_bg.jpg"
@@ -522,7 +542,126 @@ screen templatee(meenu= "save"):
         use load
 
     elif meenu == "gallery":
-        use gallery
+
+        if halaman==1:
+            use gallery
+            grid 3 3 at slidex(0,132,60):
+                xalign 0.15
+                yalign 0.4
+                xspacing 35
+                yspacing 15
+                for i in range (3*3):
+                    $e = i+1
+                    imagebutton at zum(0.1625):
+                        idle "gui/cg/cg"+str(e)+".png"
+                        action ShowMenu("tunjuk",e)
+
+
+        elif halaman==2:
+            use gallery
+            grid 3 3 at slidex(0,132,60):
+                xalign 0.15
+                yalign 0.4
+                xspacing 35
+                yspacing 15
+                for i in range (3*3):
+                    $a = i+10
+                    imagebutton at zum(0.1625):
+                        idle "gui/cg/cg"+str(a)+".png"
+                        action ShowMenu("tunjuk",a)
+
+        elif halaman==3:
+            use gallery
+            grid 3 2 at slidex(0,132,60):
+                xalign 0.15
+                yalign 0.3
+                xspacing 35
+                yspacing 15
+                for i in range (3*2):
+                    $b = i+19
+                    imagebutton at zum(0.1625):
+                        idle "gui/cg/cg"+str(b)+".png"
+                        action ShowMenu("tunjuk",b)
+
+
+        elif halaman==4:
+            use gallery
+            grid 3 2 at slidex(0,132,60) :
+                xalign 0.15
+                yalign 0.3
+                xspacing 35
+                yspacing 15
+                for i in range (3):
+                    $c = i+29
+                    imagebutton at zum(0.1625):
+
+                        idle "gui/cg/cg"+str(c)+".png"
+                        action ShowMenu("tunjuk",c)
+
+
+                for i in range (3):
+                    $d = i+26
+                    imagebutton at zum(0.1625):
+                        idle "gui/cg/cg"+str(d)+".png"
+                        action ShowMenu("tunjuk",d)
+
+        hbox:
+            xalign 0.236
+            yalign 0.8
+            spacing 20
+            textbutton "Previous Page " :
+
+                sensitive halaman !=1
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee","gallery",halaman-1)]
+
+            textbutton "Page [halaman]" :
+
+                sensitive halaman == 0
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action NullAction()
+
+            textbutton "Next Page" :
+
+                sensitive halaman !=4
+                text_size 14
+                text_xalign 0.5
+                text_yalign 0.3
+                ysize 32
+                xsize 142
+                text_justify True
+                text_color "#FFFFFF"
+                text_hover_color "#FFB940"
+                text_outlines [(1, "#674688", 1, 1)]
+                idle_background "gui/gui/pref_idle.png"
+                hover_background "gui/gui/pref_hover.png"
+                insensitive_background "gui/gui/pref_insensitive.png"
+                action [Play("sound", "gui/sfx/button1.ogg"),ShowMenu("templatee","gallery",halaman+1)]
+
+
+
 
     elif meenu == "preferences":
         use preferences
@@ -1179,7 +1318,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("display", "fullscreen")
+                action [Play("sound", "gui/sfx/button1.ogg"),Preference("display", "fullscreen")]
 
             textbutton "Window" at hovery_bawah(0.3,0,0):
                 text_size 14
@@ -1195,7 +1334,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("display", "window")
+                action [Preference("display", "window"),Play("sound", "gui/sfx/button1.ogg")]
 
         text "Transition" at slidex(0,-8,60):
             kerning -0.5
@@ -1223,7 +1362,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("transitions", "all")
+                action [Play("sound", "gui/sfx/button1.ogg"),Preference("transitions", "all")]
 
             textbutton "None" at hovery_bawah(0.3,0,0):
                 text_size 14
@@ -1239,7 +1378,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("transitions", "none")
+                action [Play("sound", "gui/sfx/button1.ogg"),Preference("transitions", "none")]
 
         text "After Choices" at slidex(0,-8,60):
             kerning -0.5
@@ -1266,7 +1405,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("after choices", "stop")
+                action [Play("sound", "gui/sfx/button1.ogg"),Preference("after choices", "stop")]
 
             textbutton "Keep Skipping" at hovery_bawah(0.3,0,0):
                 text_size 14
@@ -1282,7 +1421,7 @@ screen preferences():
                 hover_background "gui/gui/pref_hover.png"
                 selected_background "gui/gui/pref_active.png"
                 insensitive_background "gui/gui/pref_insensitive.png"
-                action Preference("after choices", "skip")
+                action [Play("sound", "gui/sfx/button1.ogg"),Preference("after choices", "skip")]
 
         text "Skip" at slidex(0,-8,60):
             kerning -0.5
@@ -1312,7 +1451,7 @@ screen preferences():
                     hover_background "gui/gui/pref_hover.png"
                     selected_background "gui/gui/pref_active.png"
                     insensitive_background "gui/gui/pref_insensitive.png"
-                    action Preference("skip", "seen")
+                    action [Play("sound", "gui/sfx/button1.ogg"),Preference("skip", "seen")]
 
                 textbutton "All Messages" at hovery_bawah(0.3,0,0):
                     text_size 14
@@ -1328,7 +1467,7 @@ screen preferences():
                     hover_background "gui/gui/pref_hover.png"
                     selected_background "gui/gui/pref_active.png"
                     insensitive_background "gui/gui/pref_insensitive.png"
-                    action Preference("skip", "all")
+                    action [Play("sound", "gui/sfx/button1.ogg"),Preference("skip", "all")]
 
             textbutton "Begin Skipping" at hovery_bawah(0.3,0,0):
                 sensitive main_menu == False

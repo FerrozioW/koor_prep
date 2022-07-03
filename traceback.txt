@@ -1,68 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 1137, in prepare_screen
-    screen preferences():
-  File "game/screens.rpy", line 1137, in prepare
-    screen preferences():
-  File "game/screens.rpy", line 1152, in prepare
-    vbox:
-  File "game/screens.rpy", line 1152, in prepare
-    vbox:
-  File "game/screens.rpy", line 1207, in prepare
-    hbox:
-  File "game/screens.rpy", line 1207, in prepare
-    hbox:
-  File "game/screens.rpy", line 1211, in prepare
-    textbutton "All" at hovery(0.1,0,0):
-  File "game/screens.rpy", line 1211, in prepare
-    textbutton "All" at hovery(0.1,0,0):
-  File "game/screens.rpy", line 1225, in <module>
-    action Preference("transitions", 1)
-  File "renpy/common/00preferences.rpy", line 553, in Preference
-    rv = get()
-  File "renpy/common/00preferences.rpy", line 551, in get
-    raise Exception("Preference(%r, %r) is unknown." % (name , value))
-Exception: Preference(u'transitions', 1) is unknown.
+While running game code:
+  File "renpy/common/00start.rpy", line 212, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 504, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 504, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 514, in _execute_python_hide
+    renpy.load("_reload-2")
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/bootstrap.py", line 331, in bootstrap
-    renpy.main.main()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 662, in main
-    run(restart)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 97, in run
-    renpy.display.screen.prepare_screens()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/screen.py", line 955, in prepare_screens
-    s.ast.prepare_screen()
-  File "game/screens.rpy", line 1137, in prepare_screen
-    screen preferences():
-  File "game/screens.rpy", line 1137, in prepare
-    screen preferences():
-  File "game/screens.rpy", line 1152, in prepare
-    vbox:
-  File "game/screens.rpy", line 1152, in prepare
-    vbox:
-  File "game/screens.rpy", line 1207, in prepare
-    hbox:
-  File "game/screens.rpy", line 1207, in prepare
-    hbox:
-  File "game/screens.rpy", line 1211, in prepare
-    textbutton "All" at hovery(0.1,0,0):
-  File "game/screens.rpy", line 1211, in prepare
-    textbutton "All" at hovery(0.1,0,0):
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/screens.rpy", line 1225, in <module>
-    action Preference("transitions", 1)
-  File "renpy/common/00preferences.rpy", line 553, in Preference
-    rv = get()
-  File "renpy/common/00preferences.rpy", line 551, in get
-    raise Exception("Preference(%r, %r) is unknown." % (name , value))
-Exception: Preference(u'transitions', 1) is unknown.
+  File "renpy/common/00start.rpy", line 212, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 504, in script
+    python hide:
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 504, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 514, in _execute_python_hide
+    renpy.load("_reload-2")
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/loadsave.py", line 771, in load
+    log.unfreeze(roots, label="_after_load")
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2200, in unfreeze
+    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2014, in rollback
+    self.load_failed()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 1932, in load_failed
+    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 koor_prep 1.0
-Sat Jul  2 23:31:43 2022
+Mon Jul  4 01:14:52 2022

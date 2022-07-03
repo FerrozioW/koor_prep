@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1207: hbox expects a non-empty block.
-    hbox:
+File "game/screens.rpy", line 103: u'pagee' is not a keyword argument or valid child for the screen statement.
+    pagee = 1
          ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Jul  2 23:28:53 2022
+Mon Jul  4 01:02:19 2022

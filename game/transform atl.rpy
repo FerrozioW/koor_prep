@@ -3,6 +3,11 @@ transform mm(zum,alpha0,alpha1):
     zoom zum alpha alpha0
     ease 1.0 alpha alpha1
 
+transform zum(zum):
+    subpixel True
+    zoom zum alpha 1
+
+
 transform hovery_kanan(pausee,x_start,y_start):
     subpixel True
     xpos (x_start-60) alpha 0
