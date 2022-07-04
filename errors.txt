@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 103: u'pagee' is not a keyword argument or valid child for the screen statement.
-    pagee = 1
-         ^
+File "game/screens.rpy", line 246: u'spacing' is not a keyword argument or valid child for the for statement.
+    spacing 30
+           ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon Jul  4 01:02:19 2022
+Mon Jul  4 23:27:27 2022

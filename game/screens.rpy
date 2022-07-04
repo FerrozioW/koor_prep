@@ -121,21 +121,35 @@ screen tunjuk (angkaa=1):
 
 screen say(who, what):
 
-    style_prefix "say"
-    window:
-        id "window"
+        add "gui/gui/textbox.png":
+            ysize 180
+            xalign 0.5
+            yalign 1.0
+
+
         if who is not None:
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
-        text what id "what"
+
+            text who id "who":
+                xpos 210
+                ypos 570
+                size 24
+                color "#FFFFFF"
+                outlines [(2, "#202657", 1,1)]
+
+        text what id "what":
+            justify True
+            xpos 210
+            ypos 590
+            xsize 960
+            size 24
+            color "#FFFFFF"
+            outlines [(2, "#202657", 1,1)]
 
 
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
-    if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+        if not renpy.variant("small"):
+            add SideImage() xalign 0.0 yalign 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -226,11 +240,25 @@ style input:
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
 screen choice(items):
-    style_prefix "choice"
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            null height 15
+            textbutton i.caption:
+                xpos 640
+                ypos 300
+                xalign 0.5
+                text_xalign 0.5
+                text_yalign 0.5
+                xsize 450
+                ysize 70
+                text_size 16
+                text_idle_outlines [(1, "#202657", 1,1)]
+                text_hover_outlines [(1, "#D6A3D0", 1,1)]
+                text_color "#FFFFFF"
+                idle_background "gui/gui/choice_idle.png"
+                hover_background "gui/gui/choice_idle.png"
+                action i.action
 
 
 ## When this is true, menu captions will be spoken by the narrator. When false,
@@ -264,24 +292,62 @@ style choice_button_text is default:
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
-    zorder 100
-
-    if quick_menu:
+    if show_quick_menu:
+        zorder 100
 
         hbox:
-            style_prefix "quick"
+            spacing 20
+            xalign 0.8
+            yalign 0.8
 
-            xalign 0.5
-            yalign 1.0
+            textbutton _("Back") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action Rollback()
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Save") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action ShowMenu("templatee","save")
+
+            textbutton _("Q.Save") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action QuickSave()
+
+            textbutton _("Q.Load") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action QuickLoad()
+
+            textbutton _("Skip") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action Skip() alternate Skip(fast=True, confirm=True)
+
+            textbutton _("Auto") at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action Preference("auto-forward", "toggle")
+
+            textbutton _("Prefs")at quick_hover():
+                text_size 14
+                text_color "#FFFFFF"
+                text_outlines [(2, "#202657", 1,1)]
+                text_hover_outlines [(2, "#D6A3D0", 1,1)]
+                action ShowMenu("templatee","preferences")
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -492,7 +558,7 @@ screen main_menu():
             text_outlines [(1, "#674688", 0, 0),(2, "#674688", 0, 0)]
             idle_background "gui/gui/mm_idle.png"
             hover_background "gui/gui/mm_hover.png"
-            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
+            action [Quit(), Play("sound", "gui/sfx/button1.ogg")]
     #logo sakura spirit
     add "gui/gui/mm_logo.png":
         xpos -58
@@ -795,7 +861,7 @@ screen templatee(meenu= "save", halaman =1):
             idle_background "gui/gui/nav_idle.png"
             hover_background "gui/gui/nav_hover.png"
             selected_background "gui/gui/nav_active.png"
-            action [Quit(confirm=not main_menu), Play("sound", "gui/sfx/button1.ogg")]
+            action [Quit(confirm= True), Play("sound", "gui/sfx/button1.ogg")]
 
 
 ## Game Menu screen ############################################################
@@ -1918,30 +1984,37 @@ screen confirm(message, yes_action, no_action):
 
     ## Ensure other screens do not get input while this screen is displayed.
     modal True
+    add "gui/gui/prefs_bg.jpg"
+    add "gui/gui/quitbox.png" at slidey(0,110,-30):
+        xalign 0.5
+        xsize 1140
+        ysize 180
 
-    zorder 200
+    text message at slidey(0,150,-30):
+        xalign 0.5
+        xsize 1080
+        size 20
+        color "#FFFFFF"
+        outlines [(2, "#202657", 1,1)]
 
-    style_prefix "confirm"
 
-    add "gui/overlay/confirm.png"
+    hbox:
+        xalign 0.51
+        spacing 100
 
-    frame:
+        textbutton _("Yes") at hovery_bawah(0.4,0,185):
+            text_size 22
+            text_color "#FFFFFF"
+            text_outlines [(2, "#202657", 1,1)]
+            text_hover_outlines [(2, "#D6A3D0", 1,1)]
+            action yes_action
 
-        vbox:
-            xalign .5
-            yalign .5
-            spacing 30
-
-            label _(message):
-                style "confirm_prompt"
-                xalign 0.5
-
-            hbox:
-                xalign 0.5
-                spacing 100
-
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+        textbutton _("No") at hovery_bawah(0.4,0,185):
+            text_size 22
+            text_color "#FFFFFF"
+            text_outlines [(2, "#202657", 1,1)]
+            text_hover_outlines [(2, "#D6A3D0", 1,1)]
+            action no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action

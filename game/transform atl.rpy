@@ -38,6 +38,13 @@ transform hovery(pausee,x_start,y_start):
     on hover:
         ease 0.15 ypos (y_start-3)
 
+transform quick_hover (y_start=0):
+    subpixel True
+    on idle:
+        ease 0.2 ypos y_start
+    on hover:
+        ease 0.2 ypos (y_start -3)
+
 transform hoverx(pausee,x_start,y_start):
     subpixel True
     xpos (x_start+60) alpha 0
