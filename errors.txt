@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 246: u'spacing' is not a keyword argument or valid child for the for statement.
-    spacing 30
-           ^
+File "game/script.rpy", line 141: invalid syntax
+        else:
+            ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon Jul  4 23:27:27 2022
+Wed Jul  6 22:19:24 2022

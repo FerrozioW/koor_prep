@@ -14,7 +14,7 @@ define m = Character ("Miyou",color = "#90D8DD",who_outlines= [(absolute(1), "24
 define mae = Character ("Maeko",color = "#FFE49E",who_outlines= [(absolute(1), "693D2A", absolute(1), absolute(1))]) #outline kuning
 define mac = Character ("Machiko",color = "#F9B2FF",who_outlines= [(absolute(1), "35214A", absolute(1), absolute(1))])#outline pink
 define veh = Character ("Village Elder Hayate",color = "#B2DE83",who_outlines= [(absolute(1), "253A27", absolute(1), absolute(1))])#outline ijo
-
+define s = Character("Suzuran",color = "#FFE49E",who_outlines= [(absolute(1), "693D2A", absolute(1), absolute(1))])
 default show_quick_menu = True
 
 transform shotcut:
@@ -66,6 +66,24 @@ screen shortcut():
                 selected_idle "gui/shortcut-button/hover.png"
                 action Jump("opsi3")
 
+screen stiker(w,h):
+
+    grid w h :
+        xspacing 5 yspacing 5
+        xalign 0.5 yalign 0.3
+        if h<4:
+            for i in range (w*h):
+                $stik = i+1
+                add "gui/ddlc/stickers/"+str(stik)+".png":
+                    xsize 178
+                    ysize 178
+        elif h ==4:
+            for i in range (w*h):
+                $stik = i+1
+                add "gui/ddlc/stickers/"+str(stik)+".png":
+                    xsize 120
+                    ysize 120
+
 label start:
     show screen shortcut
     scene basement
@@ -96,11 +114,42 @@ label start:
     return
 
 label opsi1:
-    "opsi1"
+    "Welcom to exception tester"
+    #exception
+    python:
+        try:
+            x = int(renpy.input("Gimme Number"))
+        except:
+            #dialog
+            renpy.say("suzuran","Masukin angka bruhhh")
+            #jump ke label lain
+            #renpy.jump("start")
+    "x = [x]"
     return
 
 label opsi2:
-    "opsi2"
+    s "Welcome to Grid tester"
+    python:
+        try:
+            w = int(renpy.input("width????"))
+            h = int(renpy.input("height???"))
+            if w<0 or h<0:
+                renpy.say (s,"Mana mungkin bisa grid parameternya mines, gblk!")
+                renpy.jump("opsi2")
+            elif w>4 or h>4:
+                renpy.say (s,"Kebanyakan parameternya, maksimum width dan height hanya 4")
+                renpy.jump("opsi2")
+        except:
+            renpy.say (s, "Kasih angka bukan huruf")
+            renpy.jump("opsi2")
+
+    s "Here you go, the stickers"
+    show screen stiker(w,h)
+    if w == 0 or h==0:
+        s "It's empty of cos, bikos yu don gib parameter yu idiot"
+
+    s "Sampai Jumpa"
+
     return
 
 label opsi3:

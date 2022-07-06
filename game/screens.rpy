@@ -1059,7 +1059,7 @@ screen file_slots(title):
     default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
 
     if title == "Save":
-        text "Load" at slidex(0,-8,60):
+        text "Save" at slidex(0,-8,60):
             xalign 0.04
             yalign 0.015
             size 48
