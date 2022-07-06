@@ -129,6 +129,7 @@ label opsi1:
     return
 
 label opsi2:
+    hide screen stiker
     s "Welcome to Grid tester"
     python:
         try:
