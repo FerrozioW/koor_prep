@@ -122,6 +122,7 @@ label opsi1:
         except:
             #dialog
             renpy.say("suzuran","Masukin angka bruhhh")
+            renpy.jump("opsi1")
             #jump ke label lain
             #renpy.jump("start")
     "x = [x]"
