@@ -2,10 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 141: invalid syntax
-        else:
-            ^
-    
+File "game/script.rpy", line 150: expected statement.
+    s,"Mana mungkin bisa grid parameternya mines, gblk!"
+     ^
+
+File "game/script.rpy", line 153: expected statement.
+    s,"Kebanyakan parameternya, maksimum width dan height hanya 4"
+     ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jul  6 22:19:24 2022
+Wed Jul  6 22:31:11 2022

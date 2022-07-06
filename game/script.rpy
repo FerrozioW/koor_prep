@@ -90,7 +90,7 @@ label start:
     show lisa_c:
         xalign 0.5
         yalign 0.0
-    d "You've created a new Ren'Py game."
+    s "You've created a new Ren'Py game."
 
     k "Once you add a story, pictures, and music, you can release it to the world!"
     t "biru"
@@ -134,20 +134,25 @@ label opsi2:
         try:
             w = int(renpy.input("width????"))
             h = int(renpy.input("height???"))
-            if w<0 or h<0:
-                renpy.say (s,"Mana mungkin bisa grid parameternya mines, gblk!")
-                renpy.jump("opsi2")
-            elif w>4 or h>4:
-                renpy.say (s,"Kebanyakan parameternya, maksimum width dan height hanya 4")
-                renpy.jump("opsi2")
+
         except:
-            renpy.say (s, "Kasih angka bukan huruf")
+
+            renpy.say (s, "Kasih angka bukan huruf, dan jangan kosongin parameternya")
             renpy.jump("opsi2")
 
-    s "Here you go, the stickers"
-    show screen stiker(w,h)
-    if w == 0 or h==0:
-        s "It's empty of cos, bikos yu don gib parameter yu idiot"
+
+
+    if w<0 or h<0:
+        s "Mana mungkin bisa grid parameternya mines, gblk!"
+        jump opsi2
+    elif w>4 or h>4:
+        s "Kebanyakan parameternya, maksimum width dan height hanya 4"
+        jump opsi2
+    else:
+        s "here is your stikers"
+        show screen stiker(w,h)
+        if w == 0 or h==0:
+            s "It's empty of cos, bikos yu don gib parameter yu idiot"
 
     s "Sampai Jumpa"
 
