@@ -155,6 +155,7 @@ label opsi2:
             s "It's empty of cos, bikos yu don gib parameter yu idiot"
 
     s "Sampai Jumpa"
+    hide screen stiker
 
     return
 
