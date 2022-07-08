@@ -7,6 +7,16 @@ transform zum(zum):
     subpixel True
     zoom zum alpha 1
 
+transform ctc(x_start):
+    subpixel True
+    alpha 0 xpos x_start
+
+    block:
+        linear 0.6 alpha 1.0 xpos x_start+4
+        pause 0.2
+        linear 0.6 alpha 0.5 xpos x_start
+        pause 0.2
+        repeat
 
 transform hovery_kanan(pausee,x_start,y_start):
     subpixel True

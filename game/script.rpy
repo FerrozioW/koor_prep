@@ -16,6 +16,7 @@ define mac = Character ("Machiko",color = "#F9B2FF",who_outlines= [(absolute(1),
 define veh = Character ("Village Elder Hayate",color = "#B2DE83",who_outlines= [(absolute(1), "253A27", absolute(1), absolute(1))])#outline ijo
 define s = Character("Suzuran",color = "#FFE49E",who_outlines= [(absolute(1), "693D2A", absolute(1), absolute(1))])
 default show_quick_menu = True
+define sa = Character ("Sayori",what_prefix='"', what_suffix='"')
 
 transform shotcut:
     subpixel True
@@ -34,8 +35,10 @@ transform shotcut:
     on hide:
         ease 0.2 alpha 0.0
 
-
+#buat tunjukin 3 shortut button dibawah
 default sotcut = False
+#buat ubah textbox ddlc
+default ddlc = False
 screen shortcut():
     vbox:
         spacing 10
@@ -85,6 +88,7 @@ screen stiker(w,h):
                     ysize 120
 
 label start:
+    $ show_quick_menu = True
     show screen shortcut
     scene basement
     show lisa_c:
@@ -114,6 +118,7 @@ label start:
     return
 
 label opsi1:
+    $ddlc = False
     "Welcom to exception tester"
     #exception
     python:
@@ -129,7 +134,10 @@ label opsi1:
     return
 
 label opsi2:
+    show lisa_c:
+        align (0.5,0.0)
     hide screen stiker
+    $ddlc = False
     s "Welcome to Grid tester"
     python:
         try:
@@ -161,5 +169,18 @@ label opsi2:
     return
 
 label opsi3:
-    "opsi3"
+    $show_quick_menu = False
+    $ddlc = True
+    window hide
+    scene black
+    show expression Text("For anyone who have gotten this far. I present you my hardest remake..",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+    show expression Text("Natsuki? No Bulli!\nPart 1\n(Story by Wongton)",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+    scene nnba with ImageDissolve("right_nnb",1.0,ramplen = 123)
+    window show
+    show syra with dissolve
+    sa "opsi3"
     return

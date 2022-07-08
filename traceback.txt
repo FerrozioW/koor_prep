@@ -1,26 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 133, in script
-    python:
-  File "game/script.rpy", line 139, in <module>
-    if int(w) == False or int(h) == False:
-NameError: name 'w' is not defined
+WindowsError: [Error 32] The process cannot access the file because it is being used by another process: u'D:\\VN direct\\koor_prep/game\\saves\\persistent'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 133, in script
-    python:
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 139, in <module>
-    if int(w) == False or int(h) == False:
-NameError: name 'w' is not defined
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 665, in main
+    renpy.persistent.update(True)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/persistent.py", line 395, in update
+    save()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/persistent.py", line 411, in save
+    renpy.loadsave.location.save_persistent(data)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/savelocation.py", line 496, in save_persistent
+    l.save_persistent(data)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/savelocation.py", line 351, in save_persistent
+    safe_rename(fn_new, fn)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/loadsave.py", line 304, in safe_rename
+    os.unlink(new)
+WindowsError: [Error 32] The process cannot access the file because it is being used by another process: u'D:\\VN direct\\koor_prep/game\\saves\\persistent'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 koor_prep 1.0
-Wed Jul  6 22:37:00 2022
+Fri Jul  8 22:52:19 2022

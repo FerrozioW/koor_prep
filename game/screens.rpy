@@ -121,6 +121,7 @@ screen tunjuk (angkaa=1):
 
 screen say(who, what):
 
+    if ddlc == False:
         add "gui/gui/textbox.png":
             ysize 180
             xalign 0.5
@@ -144,6 +145,49 @@ screen say(who, what):
             size 24
             color "#FFFFFF"
             outlines [(2, "#202657", 1,1)]
+
+    #ini buat UI ddlc
+    elif ddlc== True:
+
+        if who != "centered":
+            add "gui/ddlc/nnb/textbox.png":
+                ysize 145
+                xalign 0.5
+                yalign 0.99
+
+
+        if who is not None:
+            add "gui/ddlc/nnb/namebox.png":
+                ysize 40
+                xalign 0.24
+                yalign 0.78
+
+            text who id "who":
+                xpos 310
+                text_align 0.5
+                ypos 550
+                size 24
+                font "gui/ddlc/nnb_txname.ttf"
+                color "#FFFFFF"
+                outlines [(3, "#BB5599", 1,1)]
+        if who == "centered":
+            text what id "what":
+                align (0.5,0.5)
+                color "#FFFFFF"
+                font "gui/ddlc/nnb_txbox.ttf"
+                outlines [(3, "#000000", 1,1)]
+
+        text what id "what":
+            justify True
+            xpos 270
+            ypos 590
+            xsize 960
+            size 24
+            color "#FFFFFF"
+            font "gui/ddlc/nnb_txbox.ttf"
+            outlines [(1, "#000000", 0,0)]
+        add "gui/ddlc/nnb/ctc.png" at ctc(1020):
+            yalign 0.98
 
 
     ## If there's a side image, display it above the text. Do not display on the

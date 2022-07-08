@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 144: expected an indented block
-        renpy.say (s, "Kasih angka bukan huruf, dan jangan kosongin parameternya")
-             ^
-    
+File "game/script.rpy", line 137: expected statement.
+    add lisa_c
+              ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jul  6 22:52:05 2022
+Fri Jul  8 22:36:01 2022
