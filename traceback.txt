@@ -1,28 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-WindowsError: [Error 32] The process cannot access the file because it is being used by another process: u'D:\\VN direct\\koor_prep/game\\saves\\persistent'
+  File "game/script.rpy", line 291, in script
+    show natb at ddlc_appear(0.5.0.8,1) as nata
+SyntaxError: invalid syntax (script.rpy, line 291)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/bootstrap.py", line 331, in bootstrap
-    renpy.main.main()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 665, in main
-    renpy.persistent.update(True)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/persistent.py", line 395, in update
-    save()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/persistent.py", line 411, in save
-    renpy.loadsave.location.save_persistent(data)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/savelocation.py", line 496, in save_persistent
-    l.save_persistent(data)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/savelocation.py", line 351, in save_persistent
-    safe_rename(fn_new, fn)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/loadsave.py", line 304, in safe_rename
-    os.unlink(new)
-WindowsError: [Error 32] The process cannot access the file because it is being used by another process: u'D:\\VN direct\\koor_prep/game\\saves\\persistent'
+  File "game/script.rpy", line 291, in script
+    show natb at ddlc_appear(0.5.0.8,1) as nata
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 1197, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 1156, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2274, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 835, in py_compile
+    raise e
+SyntaxError: invalid syntax (script.rpy, line 291)
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 koor_prep 1.0
-Fri Jul  8 22:52:19 2022
+Sun Jul 10 00:02:44 2022

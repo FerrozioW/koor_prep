@@ -181,7 +181,7 @@ screen say(who, what):
             justify True
             xpos 270
             ypos 590
-            xsize 960
+            xsize 750
             size 24
             color "#FFFFFF"
             font "gui/ddlc/nnb_txbox.ttf"

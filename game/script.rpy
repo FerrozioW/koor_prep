@@ -16,8 +16,20 @@ define mac = Character ("Machiko",color = "#F9B2FF",who_outlines= [(absolute(1),
 define veh = Character ("Village Elder Hayate",color = "#B2DE83",who_outlines= [(absolute(1), "253A27", absolute(1), absolute(1))])#outline ijo
 define s = Character("Suzuran",color = "#FFE49E",who_outlines= [(absolute(1), "693D2A", absolute(1), absolute(1))])
 default show_quick_menu = True
-define sa = Character ("Sayori",what_prefix='"', what_suffix='"')
+define sa = Character("Sayori", what_prefix='"', what_suffix='"')
+define mo = Character("Monika", what_prefix='"', what_suffix='"')
+define yu = Character("Yuri", what_prefix='"', what_suffix='"')
+define na = Character("Natsuki", what_prefix='"', what_suffix='"')
 
+image noise:
+    "noise1"
+    pause 0.25
+    "noise2"
+    pause 0.25
+    "noise3"
+    pause 0.25
+    "noise4"
+    pause 0.25
 transform shotcut:
     subpixel True
     zoom 1 alpha 0.0
@@ -169,6 +181,7 @@ label opsi2:
     return
 
 label opsi3:
+    hide screen stiker
     $show_quick_menu = False
     $ddlc = True
     window hide
@@ -181,6 +194,102 @@ label opsi3:
     hide text with dissolve
     scene nnba with ImageDissolve("right_nnb",1.0,ramplen = 123)
     window show
-    show syra with dissolve
-    sa "opsi3"
+    "a"
+    show syra  at ddlc_appear(0.5)
+    sa "Hey Monika, can I ask something?"
+    show mona   at ddlc_appear(0.1)
+    show syra  at ddlc_geser(0.9)
+    mo "Sure, go ahead!"
+    show mona at ddlc_geser (0.1)
+    show syrb at ddlc_appear(0.92) as syra
+    sa "What do people mean by \"The Birds and the Bees\"?"
+    show monb as mona
+    show syrb at ddlc_geser (0.92) as syra
+    mo "..."
+    hide mona
+    show monf at ddlc_appear (0.1,0.8,1)
+    mo "I think you're not supposed to ask something like this.."
+    mo "As this is more an \"adult\" type of topic."
+    show monf at ddlc_geser (0.1)
+    show syra at ddlc_appear (0.9)
+    sa "But Monika.."
+    sa "I'm already 18 years old, dont you know that?"
+    show syra at ddlc_geser(0.9)
+    "Monika stuttered for a second."
+    show monc at ddlc_appear (0.1,0.8,1) as monf
+    mo "Oh.."
+    show mond as monf
+    mo "Alright then."
+    "All of sudden, Yuri steps in."
+    show mond at ddlc_geser(-0.2) as monf
+    show syra at ddlc_geser(1.15)
+    show yura at ddlc_appear (0.5)
+    yu "THAT'S WHEN THEY HAVE SEX!"
+    show yura  as yura:
+        xalign 0.5 yalign 1 zoom 1.0 yoffset -20
+    yu "LOTS AND LOTS OF SEX!"
+    show yura as yura:
+        xalign 0.5 yalign 1 zoom 2 yoffset -120
+    yu "HAHAHAHAHA!"
+    show yura at ddlc_geser (0.5) as yura
+    show noise
+    window hide
+    pause 0.5
+    show monc at ddlc_appear (-0.2,0.8,1) as monf
+    hide noise
+    window show
+    mo "Yuri, get your shit together, this is no longer part of the original story.. "
+    show monc at ddlc_geser (-0.2) as monf
+    ""
+    show yurb at ddlc_appear(0.5,0.8,1) as yura
+    yu "Um.. I think I need to go to the toilet.."
+    show yurb at ddlc_out (0.5) as yura
+    ""
+    show monc at ddlc_geser (0.1,0.8,0.7) as monf
+    show syra at ddlc_geser (0.9,0.8,0.7) as syra
+    "Yuri hurdles away in fear as she said that statement."
+    "Leaving Monika and Sayori concerned wether she'll go crazy again or not "
+    show monc at ddlc_appear(0.1,0.8,1) as monf
+    mo "Well at least Natsuki ain't here so we could talk shit about what happened last time in the club room"
+    hide monf with Dissolve (0.75)
+    hide syra with Dissolve (0.75)
+
+    window hide
+    with Dissolve (0.75)
+
+    scene black with ImageDissolve("right_nnb",1.0,ramplen = 123)
+
+    show expression Text("15 minutes later..",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+
+
+    scene nnbb with ImageDissolve("right_nnb",1.0,ramplen = 123)
+
+    window show
+    with Dissolve (0.25)
+
+    show mong at ddlc_appear (0.5,0.8,0)
+    mo "Ok now that we are here, where should we start first? "
+    show mong at ddlc_geser (0.9)
+    show syrc at ddlc_appear (0.1,0.8,1)
+    sa "I know, remember that time when Natsuki wrote a poem about spiders?"
+    sa "It was so terrible, it almost made me laugh about it."
+    sa "Even Yuri said that poem is for babies, while ours is more..."
+    show syrc at ddlc_geser (0.1) as syrc
+    na "Hello, anybody there?"
+    show syrd at ddlc_appear (0.1,0.8,1) as syrc
+    show mone as mong
+    sa "Oh shit nibba it's Trapsu.. I mean Natsuki, act natural!"
+    show nata at ddlc_appear (0.5,0.8,0)
+    show syrd at ddlc_geser(-0.2,0.8,0.25) as syrc
+    show mone at ddlc_geser (1.2,0.8,0.25) as mong
+    na "Hey there, what's cookin' today?"
+    show nata at ddlc_geser (0.5 ,0.8,0.25)
+    show syrb at ddlc_appear (-0.2,0.8,1) as syrc
+    sa "Oh, uhh.. nothing special today, just living the life as usual "
+    show natc at ddlc_appear(0.5,0.8,1) as nata
+    show syrb at ddlc_geser (-0.2,0.8,0.25) as syrc
+    na " The atmosfere doesn't feel normal at all, are you guys hiding something?"
+
     return

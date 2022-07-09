@@ -7,16 +7,37 @@ transform zum(zum):
     subpixel True
     zoom zum alpha 1
 
+
+
+transform ddlc_appear(x_start = 0.5,zum = 0.8 ,alpa = 0):
+    subpixel True
+    on show:
+        xalign x_start yalign 1.03
+        zoom zum *0.9 alpha alpa
+        easein 0.25 yoffset 20 zoom zum alpha 1.00
+    on replace:
+        easein 0.25 yoffset 20 zoom zum alpha 1.00
+
+transform ddlc_geser(x_start = 0.5, zum = 0.8, durasi = 0.25):
+    subpixel True
+    ease durasi xalign x_start zoom zum*0.95 yoffset 10 alpha 1
+
+transform ddlc_out(x_start = 0.5):
+    subpixel True
+    easein 0.3 xalign x_start+0.1
+    easeout 1 xalign -2.0
+
 transform ctc(x_start):
     subpixel True
     alpha 0 xpos x_start
 
     block:
-        linear 0.6 alpha 1.0 xpos x_start+4
-        pause 0.2
-        linear 0.6 alpha 0.5 xpos x_start
-        pause 0.2
+        subpixel True
+        easeout 0.7 alpha 1.0 xpos x_start+4
+        easeout 0.6 alpha 0.5 xpos x_start
+        pause 0.1
         repeat
+
 
 transform hovery_kanan(pausee,x_start,y_start):
     subpixel True
