@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/transform atl.rpy", line 17: on expects a non-empty block.
-    on replace:
+File "game/script.rpy", line 30: style property text_xalign is not known.
+    text_xalign 0
                ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Jul  9 23:42:46 2022
+Sun Jul 10 22:15:22 2022

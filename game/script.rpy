@@ -21,6 +21,17 @@ define mo = Character("Monika", what_prefix='"', what_suffix='"')
 define yu = Character("Yuri", what_prefix='"', what_suffix='"')
 define na = Character("Natsuki", what_prefix='"', what_suffix='"')
 
+
+style poem:
+    font "gui/ddlc/nnb_poem.otf"
+    xsize 691
+    line_spacing 5
+    size 28
+    outlines [(0, "#000000", 0,1)]
+    text_align 0
+    kerning 0.5
+
+
 image noise:
     "noise1"
     pause 0.25
@@ -30,6 +41,13 @@ image noise:
     pause 0.25
     "noise4"
     pause 0.25
+
+image natb_flip = im.Flip("natb.png", horizontal="True")
+
+image natd_flip = im.Flip("natd.png", horizontal="True")
+
+image nate_flip = im.Flip("nate.png", horizontal="True")
+
 transform shotcut:
     subpixel True
     zoom 1 alpha 0.0
@@ -99,6 +117,28 @@ screen stiker(w,h):
                     xsize 120
                     ysize 120
 
+screen ddlc_letter():
+    add "gui/ddlc/nnb/poem.jpg":
+        align (0.52,0.5)
+
+    vbox:
+        xalign 0.52 yalign 0.4
+        spacing 50
+
+        text"Sometimes I think that Natsuki is the worst club member in our club, not only she makes the shittiest poems, but she also constantly making a fuss of us, what is that \"Eagles can fly\" shit, that's literally for babies like her, she should reflect upon her poems and to make it better, not to constantly make the \"same\" type of poem, I really wish she could leave the club as soon as possible so we don't have to deal with her.":
+            style "poem"
+
+        text"I dare her not to come back to the club again afterwards":
+            style "poem"
+
+        null height 25
+
+        text"Natsuki is an idiot.":
+            style "poem"
+
+        null height 50
+        text"I want her to leave us alone.":
+            style "poem"
 label start:
     $ show_quick_menu = True
     show screen shortcut
@@ -193,8 +233,10 @@ label opsi3:
     $ renpy.pause(2.0, hard=True)
     hide text with dissolve
     scene nnba with ImageDissolve("right_nnb",1.0,ramplen = 123)
+
+    play music "gui/ddlc/Ohayou Sayori!.mp3"
+
     window show
-    "a"
     show syra  at ddlc_appear(0.5)
     sa "Hey Monika, can I ask something?"
     show mona   at ddlc_appear(0.1)
@@ -202,26 +244,36 @@ label opsi3:
     mo "Sure, go ahead!"
     show mona at ddlc_geser (0.1)
     show syrb at ddlc_appear(0.92) as syra
+
+    stop music
+
+    play sound "gui/ddlc/nnb/Reverse2.mp3"
+
     sa "What do people mean by \"The Birds and the Bees\"?"
     show monb as mona
     show syrb at ddlc_geser (0.92) as syra
     mo "..."
-    hide mona
-    show monf at ddlc_appear (0.1,0.8,1)
+
+    show monf at ddlc_appear (0.1,0.8,1) as mona
+
+
+    play music "gui/ddlc/Poem Panic!.mp3"
+
+
     mo "I think you're not supposed to ask something like this.."
     mo "As this is more an \"adult\" type of topic."
-    show monf at ddlc_geser (0.1)
+    show monf at ddlc_geser (0.1) as mona
     show syra at ddlc_appear (0.9)
     sa "But Monika.."
     sa "I'm already 18 years old, dont you know that?"
     show syra at ddlc_geser(0.9)
     "Monika stuttered for a second."
-    show monc at ddlc_appear (0.1,0.8,1) as monf
+    show monc at ddlc_appear (0.1,0.8,1) as mona
     mo "Oh.."
-    show mond as monf
+    show mond as mona
     mo "Alright then."
     "All of sudden, Yuri steps in."
-    show mond at ddlc_geser(-0.2) as monf
+    show mond at ddlc_geser(-0.2) as mona
     show syra at ddlc_geser(1.15)
     show yura at ddlc_appear (0.5)
     yu "THAT'S WHEN THEY HAVE SEX!"
@@ -231,31 +283,39 @@ label opsi3:
     show yura as yura:
         xalign 0.5 yalign 1 zoom 2 yoffset -120
     yu "HAHAHAHAHA!"
+
+    play sound "gui/ddlc/static.mp3"
+
     show yura at ddlc_geser (0.5) as yura
     show noise
     window hide
-    pause 0.5
-    show monc at ddlc_appear (-0.2,0.8,1) as monf
+    pause 1.0
+
+    stop sound
+
+    show monc at ddlc_appear (-0.2,0.8,1) as mona
     hide noise
     window show
     mo "Yuri, get your shit together, this is no longer part of the original story.. "
-    show monc at ddlc_geser (-0.2) as monf
+    show monc at ddlc_geser (-0.2) as mona
     ""
     show yurb at ddlc_appear(0.5,0.8,1) as yura
     yu "Um.. I think I need to go to the toilet.."
     show yurb at ddlc_out (0.5) as yura
     ""
-    show monc at ddlc_geser (0.1,0.8,0.7) as monf
+    show monc at ddlc_geser (0.1,0.8,0.7) as mona
     show syra at ddlc_geser (0.9,0.8,0.7) as syra
     "Yuri hurdles away in fear as she said that statement."
     "Leaving Monika and Sayori concerned wether she'll go crazy again or not "
-    show monc at ddlc_appear(0.1,0.8,1) as monf
+    show monc at ddlc_appear(0.1,0.8,1) as mona
     mo "Well at least Natsuki ain't here so we could talk shit about what happened last time in the club room"
-    hide monf with Dissolve (0.75)
+    hide mona with Dissolve (0.75)
     hide syra with Dissolve (0.75)
 
     window hide
     with Dissolve (0.75)
+
+    stop music fadeout 1.0
 
     scene black with ImageDissolve("right_nnb",1.0,ramplen = 123)
 
@@ -263,7 +323,7 @@ label opsi3:
     $ renpy.pause(2.0, hard=True)
     hide text with dissolve
 
-
+    play music "gui/ddlc/Okay, Everyone!.mp3"
     scene nnbb with ImageDissolve("right_nnb",1.0,ramplen = 123)
 
     window show
@@ -291,5 +351,87 @@ label opsi3:
     show natc at ddlc_appear(0.5,0.8,1) as nata
     show syrb at ddlc_geser (-0.2,0.8,0.25) as syrc
     na " The atmosfere doesn't feel normal at all, are you guys hiding something?"
+    show natc at ddlc_geser(0.5) as nata
+    show syrb at ddlc_appear (-0.2,0.8,1) as syrc
+    sa "Well.. we just arrived at the school to prepare for the class cleanup, and.."
+    show syrb at ddlc_geser (-0.2) as syrc
+    show natd_flip at ddlc_appear(0.5) as nata
+    na "And what's that you are holding, Monika?"
+    show monf at ddlc_appear(1.2) as mong
+    show natd_flip at ddlc_geser(0.5) as nata
+    mo "Oh, it's just a.."
 
+    play sound "gui/ddlc/nnb/Slap.mp3"
+
+    show nate_flip at ddlc_appear(0.5) as nata
+    show monf at ddlc_geser (1.2) as mong
+    na "Give it to me!"
+    show nate_flip at ddlc_geser(0.5) as nata
+    show syra as syrc
+    show monb at ddlc_appear(1.2) as mong
+    mo "Natsuki don't open that.. I.."
+    show monb at ddlc_geser (1.2) as mong
+    "Even before Natsuki open the letter, Monika knows that she'll be in a bad time."
+    window hide
+    with Dissolve(0.1)
+
+    play sound "gui/ddlc/nnb/Open Page.mp3"
+
+    stop music fadeout 0.5
+
+    show screen ddlc_letter with dissolve
+    pause
+    hide screen ddlc_letter with dissolve
+
+    play music "gui/ddlc/My Feelings.mp3"
+
+    window show
+    with Dissolve (0.1)
+
+    show nate_flip at ddlc_appear (0.5) as nata
+    na "..."
+    show natb_flip as nata
+    na "I've always been nice to you guys.."
+    na "I've also been trying my best to create the best poems so you guys will like it"
+    na "But why.."
+    na "I always end up things like this.."
+    na "If you guys really want me to leave the club, I'll leave then."
+    show natb as nata
+    na "GOODBYE!"
+    show natb at ddlc_out(0.5) as nata
+    ""
+    show syra at ddlc_geser(0.1,0.8,0.75) as syrc
+    show monb at ddlc_geser(0.9,0.8,0.75) as mong
+    "Natsuki left the club instantly without saying a word while rushing through the door."
+    "Leaving Monika and Sayori concerned regarding what will happen next."
+
+
+    hide syrc with Dissolve (0.75)
+    hide mong with Dissolve (0.75)
+
+    window hide
+    with Dissolve (0.75)
+
+    scene black
+
+    show expression Text("Now that this club only have 3 members left, the are fearing that this club will be disbanded due to lack of club members.",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+
+    show expression Text("The only way for them to keep the club alive is to invite Natsuki back.",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+
+    show expression Text("However, the question remains, will Natsuki ever come back to the Literature Club?",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+
+    show expression Text("Find out more on the next episode of: natsuki? No Bulli!",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+
+    show expression Text("Thank you for playing!",color="#FFFFFF", xsize=600,text_align=0.5,size=30, yalign=0.5, xalign=0.5) as text with dissolve
+    $ renpy.pause(2.0, hard=True)
+    hide text with dissolve
+    stop music
     return
