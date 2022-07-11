@@ -131,6 +131,7 @@ screen say(who, what):
         if who is not None:
 
             text who id "who":
+                text_align 0.5
                 xpos 210
                 ypos 570
                 size 24
@@ -149,27 +150,30 @@ screen say(who, what):
     #ini buat UI ddlc
     elif ddlc== True:
 
-        if who != "centered":
-            add "gui/ddlc/nnb/textbox.png":
-                ysize 145
-                xalign 0.5
-                yalign 0.99
 
 
         if who is not None:
-            add "gui/ddlc/nnb/namebox.png":
-                ysize 40
-                xalign 0.24
-                yalign 0.78
-
-            text who id "who":
-                xpos 310
-                text_align 0.5
+            textbutton who id "who":
+                xpos 275
+                text_xalign 0.5
+                text_yalign 0.5
+                xsize 168
                 ypos 550
-                size 24
-                font "gui/ddlc/nnb_txname.ttf"
-                color "#FFFFFF"
-                outlines [(3, "#BB5599", 1,1)]
+                text_size 24
+                text_font "gui/ddlc/nnb_txname.ttf"
+                text_color "#FFFFFF"
+                text_outlines [(3, "#BB5599", 1,1)]
+                idle_background "gui/ddlc/nnb/namebox.png"
+                hover_background "gui/ddlc/nnb/namebox.png"
+                action Null
+
+
+        add "gui/ddlc/nnb/textbox.png":
+            ysize 145
+            xalign 0.5
+            yalign 0.99
+
+
         if who == "centered":
             text what id "what":
                 align (0.5,0.5)
@@ -186,15 +190,16 @@ screen say(who, what):
             color "#FFFFFF"
             font "gui/ddlc/nnb_txbox.ttf"
             outlines [(1, "#000000", 0,0)]
-        add "gui/ddlc/nnb/ctc.png" at ctc(1020):
-            yalign 0.98
 
+## If there's a side image, display it above the text. Do not display on the
+## phone variant - there's no room.
+    if not renpy.variant("small"):
+        add SideImage() xalign 0.0 yalign 1.0
 
-    ## If there's a side image, display it above the text. Do not display on the
-    ## phone variant - there's no room.
-        if not renpy.variant("small"):
-            add SideImage() xalign 0.0 yalign 1.0
-
+screen ctc():
+    zorder 100
+    add "gui/ddlc/nnb/ctc.png" at ctc(1018):
+        ypos 689
 
 ## Make the namebox available for styling through the Character object.
 init python:

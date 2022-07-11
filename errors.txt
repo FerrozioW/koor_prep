@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 30: style property text_xalign is not known.
-    text_xalign 0
-               ^
+File "game/screens.rpy", line 206: u'add' is not a keyword argument or valid child for the add statement.
+    add SideImage() xalign 0.0 yalign 1.0
+       ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jul 10 22:15:22 2022
+Tue Jul 12 00:11:39 2022

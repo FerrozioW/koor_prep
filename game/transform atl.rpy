@@ -29,13 +29,12 @@ transform ddlc_out(x_start = 0.5):
 
 transform ctc(x_start):
     subpixel True
-    alpha 0 xpos x_start
+    alpha 0  xpos x_start
 
     block:
         subpixel True
-        easeout 0.7 alpha 1.0 xpos x_start+4
-        easeout 0.6 alpha 0.5 xpos x_start
-        pause 0.1
+        easeout  0.8 alpha 1.0 xpos x_start+8
+        easein 0.8 alpha 0.5 xpos x_start
         repeat
 
 
