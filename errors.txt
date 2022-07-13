@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 206: u'add' is not a keyword argument or valid child for the add statement.
-    add SideImage() xalign 0.0 yalign 1.0
-       ^
+File "game/mv.rpy", line 12: reached end of line when expecting ':'.
+    if dur <3.037
+                 ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Jul 12 00:11:39 2022
+Wed Jul 13 20:30:30 2022

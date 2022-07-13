@@ -170,19 +170,15 @@ label start:
     return
 
 label opsi1:
-    $ddlc = False
-    "Welcom to exception tester"
-    #exception
-    python:
-        try:
-            x = int(renpy.input("Gimme Number"))
-        except:
-            #dialog
-            renpy.say("suzuran","Masukin angka bruhhh")
-            renpy.jump("opsi1")
-            #jump ke label lain
-            #renpy.jump("start")
-    "x = [x]"
+    hide lisa_c
+    hide basement
+    window hide
+    scene black
+    stop music
+    $show_quick_menu = False
+    $renpy.music.play("mv/moment_day.ogg",channel = "sound")
+    show screen mv
+    pause
     return
 
 label opsi2:

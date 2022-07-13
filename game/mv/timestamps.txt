@@ -1,0 +1,36 @@
+00:00:000 - 01
+00:03:037 - 02
+00:04:556 - 03
+00:06:075 - 04 (PROJEKT:ATL) - easeOut_back -> easein_back
+00:12:151 - 05
+00:17:848 - Transition to white
+00:18:227 - 06
+00:23:544 - Transition to black
+00:24:303 - 07
+00:28:860 - 07.5
+00:30:000 - Transition to black
+00:30:379 - 08
+00:35:886 - Transition to black
+00:36:455 - 09
+00:38:924 - Transition to black
+00:39:303 - 10 // Changed to almost immediately 11
+00:39:493 - 11
+00:41:772 - 12 / Transition to white
+00:42:531 - 13 (reff)
+00:44:050 - 14
+00:45:569 - 15
+00:47:088 - 16
+00:48:607 - 17 (Eileen)
+00:50:126 - 18
+00:51:645 - 19
+00:53:164 - 20 (blinking)
+00:54:303 - Transition to white
+00:54:683 - 21 (dance videos) go to center bright star
+01:00:759 - 22
+01:05:316 - 23
+01:06:835 - 24
+
+1 beat = 0.379
+
+https://www.renpy.org/doc/html/atl.html?highlight=atl#warpers
+https://easings.net/
