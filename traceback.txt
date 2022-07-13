@@ -1,70 +1,52 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 176, in script
-    pause
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "game/mv.rpy", line 1, in execute
+After initialization, but before game start.
+  File "game/mv.rpy", line 4, in prepare_screen
     screen mv():
-  File "game/mv.rpy", line 1, in execute
+  File "game/mv.rpy", line 4, in prepare
     screen mv():
-  File "game/mv.rpy", line 3, in execute
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-  File "game/mv.rpy", line 3, in keywords
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-  File "game/mv.rpy", line 3, in <module>
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-ValueError: invalid literal for int() with base 10: 'dur'
+  File "game/mv.rpy", line 10, in prepare
+    if dur <3.037:
+  File "game/mv.rpy", line 32, in prepare
+    elif dur == "None":
+  File "game/mv.rpy", line 33, in prepare
+    timer 0.001 action Hide()
+  File "game/mv.rpy", line 33, in prepare
+    timer 0.001 action Hide()
+  File "game/mv.rpy", line 33, in <module>
+    timer 0.001 action Hide()
+TypeError: __init__() takes at least 2 arguments (1 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 176, in script
-    pause
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/exports.py", line 1563, in pause
-    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 3737, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/screen.py", line 436, in visit_all
-    callback(self)
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/core.py", line 3737, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/screen.py", line 447, in per_interact
-    self.update()
-  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/screen.py", line 637, in update
-    self.screen.function(**self.scope)
-  File "game/mv.rpy", line 1, in execute
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 662, in main
+    run(restart)
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/main.py", line 97, in run
+    renpy.display.screen.prepare_screens()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/display/screen.py", line 955, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/mv.rpy", line 4, in prepare_screen
     screen mv():
-  File "game/mv.rpy", line 1, in execute
+  File "game/mv.rpy", line 4, in prepare
     screen mv():
-  File "game/mv.rpy", line 3, in execute
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-  File "game/mv.rpy", line 3, in keywords
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-  File "game/mv.rpy", line 3, in <module>
-    timer 1.0 repeat True action SetVariable(int("dur"),dur+1)
-ValueError: invalid literal for int() with base 10: 'dur'
+  File "game/mv.rpy", line 10, in prepare
+    if dur <3.037:
+  File "game/mv.rpy", line 32, in prepare
+    elif dur == "None":
+  File "game/mv.rpy", line 33, in prepare
+    timer 0.001 action Hide()
+  File "game/mv.rpy", line 33, in prepare
+    timer 0.001 action Hide()
+  File "C:\Users\ferro\Desktop\SI UMN\VN Code\renpy-7.4.10-sdk/renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/mv.rpy", line 33, in <module>
+    timer 0.001 action Hide()
+TypeError: __init__() takes at least 2 arguments (1 given)
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 koor_prep 1.0
-Wed Jul 13 20:07:09 2022
+Wed Jul 13 20:38:43 2022

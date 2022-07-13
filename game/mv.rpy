@@ -2,7 +2,7 @@
 default y = True
 
 screen mv():
-
+    modal True
     $dur = renpy.music.get_pos(channel = "sound")
 
     timer 0.001 repeat True action SetVariable("y",y+0.001)
