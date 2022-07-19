@@ -140,6 +140,7 @@ screen ddlc_letter():
         text"I want her to leave us alone.":
             style "poem"
 label start:
+    stop music
     $ show_quick_menu = True
     show screen shortcut
     scene basement
@@ -166,7 +167,14 @@ label start:
     m "toska"
     mae "kuning"
     mac "ping"
+    show frame2blur at frame2:
+        xalign 0.5
     veh "hijau"
+    window hide
+    $show_quick_menu = False
+    $renpy.music.play("los3.mp3",channel = "sound")
+    show screen my_mv
+    pause
     return
 
 label opsi1:

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/mv.rpy", line 12: reached end of line when expecting ':'.
-    if dur <3.037
-                 ^
+File "game/script.rpy", line 170: expected 'image_name_component' not found.
+    show "pert3/char2/char2.jpg"
+         ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jul 13 20:30:30 2022
+Tue Jul 19 19:00:12 2022
